@@ -246,16 +246,6 @@ def get_bedrock_response(args: dict) -> dict:
             )
             # Ref: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-runtime/client/invoke_model_with_response_stream.html
             response_body = response
-
-            if model_id == "mistral-7b-instruct":
-                # check for product
-                if "product" in response_body.lower():
-                    return response_body
-                else:
-                    "I am a programmed to only generate product descriptions. Please ask me to generate a product description."
-            else:
-                pass
-
         except Exception as e:
             logger.error(e)
     else:
@@ -276,10 +266,12 @@ def get_bedrock_response(args: dict) -> dict:
         response_body["amazon-bedrock-invocationMetrics"] = invocation_metrics
         if model_id == "mistral-7b-instruct":
             # check for product
-            if "product" in response_body.lower():
-                return response_body
+            if "product" in response_body["outputs"][0]["text"].lower():
+                pass
             else:
-                "I am a programmed to only generate product descriptions. Please ask me to generate a product description."
+                response_body["outputs"][0][
+                    "text"
+                ] = "I am a programmed to only generate product descriptions. Please ask me to generate a product description."
         else:
             pass
     return response_body
