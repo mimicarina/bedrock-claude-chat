@@ -1,4 +1,4 @@
-# Bedrock Claude Chat
+# LLM Chat
 
 ![](https://github.com/aws-samples/bedrock-claude-chat/actions/workflows/cdk.yml/badge.svg)
 

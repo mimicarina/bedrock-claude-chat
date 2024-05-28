@@ -26,17 +26,12 @@ const availableModels: {
 ] : [
     {
       modelId: 'mistral-7b-instruct',
-      label: 'Mistral 7B',
+      label: 'Mistral - ProductDescriptions',
       supportMediaType: [],
     },
     {
       modelId: 'mixtral-8x7b-instruct',
-      label: 'Mixtral-8x7B',
-      supportMediaType: [],
-    },
-    {
-      modelId: 'mistral-large',
-      label: 'Mistral Large',
+      label: 'Mixtral - AskMeAnything',
       supportMediaType: [],
     },
   ]

@@ -1,4 +1,4 @@
-# Bedrock Claude Chat
+# LLM Chat
 
 > [!Tip]
 > 🔔**Claude3 Opus をサポートしました。** 2024/04/17 現在、Bedrock は`us-west-2`のみサポートしています。このリポジトリでは Bedrock はデフォルトで`us-east-1`リージョンを利用します。このため、ご利用される場合はデプロイ前に`bedrockRegion`の値を変更してください。詳細は[こちら](#deploy-using-cdk)
