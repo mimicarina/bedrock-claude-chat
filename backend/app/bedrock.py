@@ -240,11 +240,12 @@ def get_bedrock_response(args: dict) -> dict:
     logger.info(f"The args before invoke bedrock: {args}")
     if args["stream"]:
         try:
-            response = client.invoke_model(
+            response = client.invoke_model_with_response_stream(
                 modelId=model_id,
                 body=body,
             )
-            response_body = json.loads(response.get("body").read())
+            # Ref: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-runtime/client/invoke_model_with_response_stream.html
+            response_body = response
         except Exception as e:
             logger.error(e)
     else:
